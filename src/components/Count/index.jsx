@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import store from '../../redux/store'
-import {createIncrease,createDecrease} from '../../redux/countAction'
+import {createIncrease,createDecrease,createAsyncDecrease} from '../../redux/countAction'
 
 export default class Count extends Component {
 
@@ -28,9 +28,8 @@ export default class Count extends Component {
 
    AsyncDecrease=()=>{
     const {value}=this.sectionNode
-    setTimeout(()=>{
-        store.dispatch(createDecrease(value*1))
-    },2000)
+    store.dispatch(createAsyncDecrease(value*1,2000))
+    
     
    }
 
